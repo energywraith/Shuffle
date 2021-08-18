@@ -1,0 +1,231 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: #303030;
+}
+
+section.component-container {
+  align-items: center;
+  background: #ebedf8;
+  box-shadow: 0px 0px 1px black;
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+  padding: 2em 0;
+  position: relative;
+  width: 100%;
+}
+
+section.component-container > main,
+section.component-container > aside {
+  flex-grow: 1;
+  padding: 0 5em;
+  position: relative;
+}
+
+section.component-container::before {
+  background: #e5e7f4e5;
+  border-bottom: 0;
+  border-top-left-radius: 35em; /* 100px of height + 10px of border */
+  border-top-right-radius: 35em; /* 100px of height + 10px of border */
+  content: "";
+  height: 45em; /* as the half of the width */
+  position: absolute;
+  left: -15%;
+  top: 60%;
+  width: 65em;
+  z-index: 0;
+  transform: rotate(-90deg);
+}
+
+section.component-container > aside::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  width: 0;
+  height: 0;
+  border-right: 25em solid #e5e7f4e5;
+  border-top: 25em solid transparent;
+  z-index: 0;
+}
+
+section.component-container > main *,
+section.component-container > aside * {
+  z-index: 1;
+}
+
+@media (max-width: 1200px) {
+  section.component-container {
+    flex-direction: column;
+    padding: 1em 0;
+  }
+
+  section.component-container > aside {
+    margin-top: 1em;
+    padding: 0;
+    width: 100%;
+  }
+
+  section.component-container > main {
+    padding: 0 1.5em;
+  }
+}
+
+h1.component-header {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 0.8em;
+  color: #1c3ac4;
+  max-width: 30ch;
+  margin: 0.5em 0;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+h2.component-title {
+  color: #172370;
+  font-size: 3em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  max-width: 30ch;
+  margin: 0;
+}
+
+h2.component-title > span.highlight {
+  color: #264cf9;
+}
+
+p.component-description {
+  color: #787cb5;
+  max-width: 60ch;
+  font-weight: 400;
+  text-shadow: 0px 0px 0.3px #787cb5;
+  line-height: 1.7em;
+  font-size: 1.1em;
+}
+
+button.component-button {
+  background: #ff9f26;
+  border: 0;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-family: Roboto;
+  font-size: 1em;
+  padding: 0.6em 1.2em;
+  text-shadow: 0px 0px 0.6px #000000;
+  transition: filter 100ms;
+}
+
+button.component-button:hover {
+  filter: brightness(0.95);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 2em;
+  list-style: none;
+  padding: 0;
+
+  justify-content: center;
+}
+
+@media (max-width: 800px) {
+  .cards {
+    grid-template-columns: 1fr;
+    margin: 1em;
+  }
+
+  .card {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.card {
+  align-items: flex-start;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0px 0px 1px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2em;
+  row-gap: 1em;
+  margin-bottom: 2em;
+}
+
+@media (min-width: 800px) {
+  .card {
+    max-width: 30ch;
+  }
+  .card:nth-child(2n) {
+    margin-top: 2em;
+    margin-bottom: 0;
+  }
+}
+
+.card-icon {
+  background: #addcff;
+  width: 1.5em;
+  height: 1.5em;
+  padding: 1em;
+  border-radius: 6px;
+}
+
+.card-icon > .card-icon-image {
+  width: 100%;
+  height: 100%;
+}
+
+.card:nth-child(1) > .card-icon {
+  background: #addcff;
+}
+.card:nth-child(1) > .card-icon > .card-icon-image {
+  filter: invert(44%) sepia(47%) saturate(3935%) hue-rotate(190deg)
+    brightness(88%) contrast(83%);
+}
+
+.card:nth-child(2) > .card-icon {
+  background: #c2e2c4;
+}
+.card:nth-child(2) > .card-icon > .card-icon-image {
+  filter: invert(53%) sepia(10%) saturate(2805%) hue-rotate(73deg)
+    brightness(89%) contrast(80%);
+}
+
+.card:nth-child(3) > .card-icon {
+  background: #fdf7c3;
+}
+.card:nth-child(3) > .card-icon > .card-icon-image {
+  filter: invert(82%) sepia(17%) saturate(1601%) hue-rotate(329deg)
+    brightness(102%) contrast(90%);
+}
+
+.card:nth-child(4) > .card-icon {
+  background: #dcb8df;
+}
+.card:nth-child(4) > .card-icon > .card-icon-image {
+  filter: invert(60%) sepia(80%) saturate(3935%) hue-rotate(230deg)
+    brightness(88%) contrast(83%);
+}
+
+.card-header {
+  color: #172370;
+  font-size: 1.3em;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.card-description {
+  color: #787cb5;
+  text-shadow: 0px 0px 0.3px #787cb5;
+  margin: 0;
+  font-weight: 400;
+}
